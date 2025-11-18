@@ -1,4 +1,4 @@
-��# Floating Skull LEDs
+# Floating Skull LEDs
 
 ESP32-S3 + FastLED project driving **two concentric LED rings** (122 total WS2812B) with a built-in web UI, painter, effect auto-cycle, and OTA updates.  
 All animations are authored once on a **61-LED primary geometry**; the **second 61-LED ring mirrors the primary** every frame (facing mirror: 12 o’clock aligned, direction reversed).
@@ -40,7 +40,7 @@ All animations are authored once on a **61-LED primary geometry**; the **second 
   - Button (momentary to GND): **GPIO9** with `INPUT_PULLUP`
 
 **Wiring tips**
-- Put a **330 Ω** series resistor on the LED data line and a **large electrolytic** (e.g., 1000 µF, 6.3 V+across 5 V and GND near the LEDs.
+- Put a **330 Ω** series resistor on the LED data line and a **large electrolytic** (e.g., 1000 µF, 6.3 V+) across 5 V and GND near the LEDs.
 - Tie all grounds together (PSU GND ↔ ESP32 GND ↔ LED GND).
 - Long runs benefit from power injection.
 
@@ -149,7 +149,7 @@ MDNS_NAME   = "floating-skull"  // http://floating-skull.local/
 
 - **Nothing lights**: check 5 V polarity, common ground, data resistor, correct **GPIO21**.
 - **Glitching**: lower brightness, confirm `MAX_MA` vs PSU capacity, shorten data line or add a buffer, ensure a 1000 µF cap at the LEDs.
-- **Web not reachable**: connect to the ESP’s AP (`FloatingSkull / skullskull`and browse `http://192.168.4.1/`. Check your router for the mDNS hostname.
+- **Web not reachable**: connect to the ESP’s AP (`FloatingSkull / skullskull`) and browse `http://192.168.4.1/`. Check your router for the mDNS hostname.
 - **Painter offset**: verify your physical LED ring **starting index** aligns at 12 o’clock; the mirror math assumes that reference.
 
 ---
